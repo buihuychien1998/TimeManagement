@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/itemLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="50dp"
+    android:background="@drawable/color_options_item_background"
+    android:paddingLeft="@dimen/side_menu_padding"
+    android:paddingRight="@dimen/side_menu_padding" >
+
+    <TextView
+        android:id="@+id/txtName"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:text="@string/default_item"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/item_text" />
+
+    <ImageView
+        android:id="@+id/imgCheck"
+        android:layout_width="30dp"
+        android:layout_height="22dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"
+        android:layout_toLeftOf="@+id/imgColor"
+        android:background="@drawable/check"
+        android:contentDescription="@string/app_name"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/imgColor"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/blue"
+        android:contentDescription="@string/app_name" />
+
+</RelativeLayout>

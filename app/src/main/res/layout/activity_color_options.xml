@@ -1,0 +1,54 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/color_layout"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@drawable/background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutTop"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@drawable/color_options_top_background" >
+        
+        <Button
+	        android:id="@+id/btnBack"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerVertical="true"
+			android:background="@android:color/transparent"
+	        android:text="@string/back"
+			android:layout_marginStart="15dp"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintBottom_toBottomOf="parent"
+	        android:textColor="@drawable/color_back_text"
+            android:textSize="@dimen/back_text" />
+        
+        <TextView
+	        android:id="@+id/txtTitle"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/select_color"
+			android:layout_marginLeft="20dp"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintLeft_toRightOf="@+id/btnBack"
+	        android:textColor="@android:color/white"
+            android:textSize="@dimen/main_screen_app_name_text" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ListView
+        android:id="@+id/colorList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layoutTop"
+        android:cacheColorHint="@android:color/transparent"
+        android:dividerHeight="15dp"
+        android:divider="@android:color/transparent"
+        android:listSelector="@android:color/transparent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:scrollbars="none" />
+</RelativeLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="create_timer_edit_text">#86D0F7</color>
+    <color name="elapsed_time">#FF7C00</color>
+    <color name="default_color">#4095E6</color>
+    <color name="red">#C70505</color>
+    <color name="orange">#F24317</color>
+    <color name="yellow">#FD7F02</color>
+    <color name="green">#077624</color>
+    <color name="teal">#03609E</color>
+    <color name="blue">#1B2CBF</color>
+    <color name="purple">#620B95</color>
+    <color name="magenta">#AA066B</color>
+    <color name="deep_purple">#4B326D</color>
+    <color name="timer_cycle_gray">#555555</color>
+</resources>

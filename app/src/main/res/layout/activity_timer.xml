@@ -1,0 +1,210 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/timerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:paddingBottom="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="#AA1284"
+        android:layout_height="50dp">
+
+        <Button
+            android:id="@+id/btnDone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:background="@android:color/transparent"
+            android:text="@string/done"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/rate_me_text" />
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:text="@string/high_intensity"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/btnReset"
+            app:layout_constraintLeft_toRightOf="@+id/btnDone"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/timer_title_text" />
+
+        <Button
+            android:id="@+id/btnReset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="@string/reset"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/rate_me_text" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/txtTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/default_timer_time"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/timer_text" />
+    
+    <ImageView
+        android:id="@+id/imgTimer"
+        android:layout_width="@dimen/timer_width"
+        android:layout_height="@dimen/timer_height"
+        android:layout_centerInParent="true"
+        android:contentDescription="@string/app_name" />
+    
+    <TextView
+        android:id="@+id/txtInterval"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="220dp"
+        android:text="@string/interval"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="@dimen/elapsed_remaining_text" />
+
+    <Button
+        android:id="@+id/btnPrevious"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/timer_arrow_left_button" />
+
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/timer_arrow_right_button" />
+
+    <LinearLayout
+        android:id="@+id/progressLayout"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/layoutProgressText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/txtElapsed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:text="@string/elapsed"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/elapsed_remaining_text" />
+
+            <TextView
+                android:id="@+id/txtRemaining"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="10dp"
+                android:text="@string/remaining"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/elapsed_remaining_text" />
+        </RelativeLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutProgressBar"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/timer_progress_background" >
+
+            <TextView
+                android:id="@+id/txtElapsedTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:text="@string/default_timer_time"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textColor="@color/elapsed_time"
+                android:textSize="@dimen/start_text" />
+
+            <ProgressBar
+                android:id="@+id/progressTime"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="7dp"
+                app:layout_constraintRight_toLeftOf="@+id/txtRemainingTime"
+                app:layout_constraintLeft_toRightOf="@+id/txtElapsedTime"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_centerInParent="true"
+                android:rotation="180" />
+
+            <TextView
+                android:id="@+id/txtRemainingTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:text="@string/default_timer_time"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/start_text" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+    <ToggleButton
+        android:id="@+id/btnLock"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/timer_lock_button"
+        android:textOff=""
+        android:textOn="" />
+
+    <ToggleButton
+        android:id="@+id/btnStart"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/timer_start_no_border_button"
+        android:checked="true"
+        android:text="@string/start"
+        android:layout_marginBottom="120dp"
+        android:textColor="@android:color/white"
+        android:textOff="@string/pause"
+        android:textOn="@string/start"
+        android:textSize="@dimen/start_text" />
+
+</RelativeLayout>

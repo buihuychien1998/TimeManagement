@@ -1,0 +1,84 @@
+<resources>
+    <string name="app_name">Time Management</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_color_options">ColorOptionsActivity</string>
+    <string name="title_activity_creat_edit_timer">CreatEditTimerActivity</string>
+    <string name="title_activity_load_timer">LoadTimer</string>
+    <string name="title_activity_timer">TimerActivity</string>
+    <string name="saved_alert">Your timer has been saved!</string>
+    <string name="delete_alert">Are you sure you want to delete %s?</string>
+    <string name="zero_alert">Number of sets must be greater than 0!</string>
+    <string name="time_required_alert">A time is required for High Intensity &#38; Low Intensity intervals!</string>
+    <string name="no_name_alert">Timer Name is required</string>
+    <string name="high_title_alert">High Intensity Intervals Title is required</string>
+    <string name="low_title_alert">Low Intensity Intervals Title is required</string>
+    <string name="warmup_title_alert">Warm Up Title is required</string>
+    <string name="cooldown_title_alert">Cool Down Title is required</string>
+    <string name="ok">OK</string>
+
+    <!-- Main screen  -->
+    <string name="create_new_timer">CREATE NEW TIMER</string>
+    <string name="load_timer">LOAD TIMER</string>
+
+    <!-- Color screen  -->
+    <string name="back">Back</string>
+    <string name="select_color">Select Color</string>
+    <string name="default_item">Default</string>
+    <string name="default_color">Default</string>
+    <string name="red">Red</string>
+    <string name="orange">Orange</string>
+    <string name="yellow">Yellow</string>
+    <string name="green">Green</string>
+    <string name="teal">Teal</string>
+    <string name="blue">Blue</string>
+    <string name="purple">Purple</string>
+    <string name="magenta">Magenta</string>
+    <string name="deep_purple">Deep Purple</string>
+
+    <!-- Create timer screen  -->
+    <string name="cancel">Cancel</string>
+    <string name="start">Start</string>
+    <string name="timer_options">Timer Options</string>
+    <string name="timer_details">TIMER DETAILS</string>
+    <string name="name">Name</string>
+    <string name="number_of_sets">Number of sets</string>
+    <string name="warmup">WARM UP</string>
+    <string name="title">Title</string>
+    <string name="duration">Duration</string>
+    <string name="color">Color</string>
+    <string name="high_intensity_intervals">HIGH INTENSITY INTERVALS</string>
+    <string name="low_intensity_intervals">LOW INTENSITY INTERVALS</string>
+    <string name="hiit_timer">HIIT Timer</string>
+    <string name="warmup_normal">Warm Up</string>
+    <string name="high_intensity">High Intensity</string>
+    <string name="low_intensity">Low Intensity</string>
+    <string name="cool_down">COOL DOWN</string>
+    <string name="cool_down_normal">Cool Down</string>
+    <string name="save_new_timer">SAVE NEW TIMER</string>
+    <string name="save_this_timer">SAVE THIS TIMER</string>
+    <string name="delete_this_timer">DELETE THIS TIMER</string>
+    <string name="default_sets">1</string>
+    <string name="default_time">00:00:00</string>
+    <string name="over_59_minutes_alert">Minutes cannot be greater than 59!</string>
+    <string name="over_59_seconds_alert">Seconds cannot be greater than 59!</string>
+
+    <!-- Timer screen  -->
+    <string name="done">Done</string>
+    <string name="reset">Reset</string>
+    <string name="elapsed">Elapsed</string>
+    <string name="remaining">Remaining</string>
+    <string name="interval">Interval</string>
+    <string name="pause">Pause</string>
+    <string name="default_timer_time">00:00:00</string>
+    <string name="reset_alert">Are you sure you want to reset?</string>
+    <string name="done_alert">Are you sure you want to end this timer?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <!-- Rate Me  -->
+    <string name="rate_text">We hope you\'re liking your workouts!\nIf you are enjoying HIIT Timer please consider rating us!</string>
+    <string name="rate_now">Rate Now</string>
+    <string name="not_now">Not Now</string>
+    <string name="dont_ask_me_again">Don\'t ask me again</string>
+</resources>

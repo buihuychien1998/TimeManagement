@@ -1,0 +1,121 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/create_timer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutTop"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:background="@drawable/color_options_top_background" >
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:text="@string/cancel"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:textColor="@drawable/color_back_text"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/timer_options"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/btnCancel"
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/btnStart"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:layout_centerVertical="true"
+            android:text="@string/start"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/transparent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/txtTitle"
+            android:textColor="@drawable/color_back_text"
+            android:textSize="12sp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    
+    <ScrollView
+        android:id="@+id/scrollTimerOptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <include layout="@layout/timer_details" />
+
+            <include layout="@layout/timer_warmup" />
+
+            <include layout="@layout/timer_high_intensity" />
+
+            <include layout="@layout/timer_low_intensity" />
+
+            <include layout="@layout/timer_cool_down" />
+
+            <Button
+                android:id="@+id/btnSaveThisTimer"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="70dp"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:background="@drawable/button"
+                android:text="@string/save_this_timer"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+            
+            <Button
+                android:id="@+id/btnSaveNewTimer"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:background="@drawable/save_new_timer_btn"
+                android:text="@string/save_new_timer"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/timer_button_text"
+                android:visibility="gone" />
+            
+            <Button
+                android:id="@+id/btnDeleteTimer"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:background="@drawable/delete_timer_btn"
+                android:text="@string/delete_this_timer"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/timer_button_text"
+                android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

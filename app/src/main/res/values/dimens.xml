@@ -1,0 +1,42 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">20dp</dimen>
+    <dimen name="activity_vertical_margin">20dp</dimen>
+    <dimen name="slidingmenu_size">600dp</dimen>
+    <dimen name="slidingmenu_size_phone">300dp</dimen>
+    <dimen name="slidingmenu_offset">360dp</dimen>
+
+    <!-- Main screen  -->
+    <dimen name="main_screen_text">21dp</dimen>
+    <dimen name="main_screen_app_name_text">32sp</dimen>
+    
+    <!-- Side menu screen  -->
+    <dimen name="side_menu_text">18sp</dimen>
+    <dimen name="side_menu_padding">15dp</dimen>
+    
+    <!-- Color options screen  -->
+    <dimen name="back_text">20sp</dimen>
+    <dimen name="color_options_title_text">40sp</dimen>
+    <dimen name="item_text">25sp</dimen>
+    
+    <!-- Create timer screen  -->
+    <dimen name="title_text">25sp</dimen>
+    <dimen name="timer_button_text">40sp</dimen>
+    
+    <!-- Timer screen  -->
+    <dimen name="timer_title_text">40sp</dimen>
+    <dimen name="timer_text">40sp</dimen>
+    <dimen name="done_reset_text">23sp</dimen>
+    <dimen name="elapsed_remaining_text">22sp</dimen>
+    <dimen name="start_text">10sp</dimen>
+    <dimen name="timer_width">250dp</dimen>
+    <dimen name="timer_height">250dp</dimen>
+    <dimen name="timer_padding">25dp</dimen>
+    <dimen name="timer_stroke_width">6dp</dimen>
+    
+    <!-- RateMe popup  -->
+    <dimen name="rate_me_text">14sp</dimen>
+    <dimen name="rate_me_button">12sp</dimen>
+    <dimen name="rate_padding">10dp</dimen>
+</resources>

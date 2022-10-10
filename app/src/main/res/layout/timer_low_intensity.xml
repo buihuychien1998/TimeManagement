@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutLowIntensity"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/activity_vertical_margin"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/txtLowIntensity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="@string/low_intensity_intervals"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="@dimen/title_text" />
+
+    <RelativeLayout
+        android:id="@+id/layoutLowIntensityName"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/color_options_item_active_background"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/txtLowIntensityTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:text="@string/title"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/title_text" />
+
+        <EditText
+            android:id="@+id/edtLowIntensityName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="200dp"
+            android:layout_marginRight="20dp"
+            android:background="@android:color/transparent"
+            android:gravity="right|center_vertical"
+            android:inputType="text"
+            android:text="@string/low_intensity"
+            android:textColor="@color/create_timer_edit_text"
+            android:textSize="@dimen/title_text" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutLowIntensityDuration"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/color_options_item_active_background"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/txtLowIntensityDurationTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:text="@string/duration"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/title_text" />
+
+        <com.example.timemanagement.components.HiitEditText
+            android:id="@+id/edtLowIntensityDurationTime"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@+id/txtLowIntensityDurationTitle"
+            android:background="@android:color/transparent"
+            android:gravity="right|center_vertical"
+            android:inputType="number"
+            android:text="@string/default_time"
+            android:textColor="@color/create_timer_edit_text"
+            android:textSize="@dimen/title_text" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutLowIntensityColor"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/color_options_item_active_background"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/txtLowIntensityColorTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:text="@string/color"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/title_text" />
+
+        <ImageView
+            android:id="@+id/imgLowIntensityColor"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/orange"
+            android:tag="@string/purple"
+            android:contentDescription="@string/app_name" />
+    </RelativeLayout>
+
+</LinearLayout>

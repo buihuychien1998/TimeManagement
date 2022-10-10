@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:bottom="@dimen/timer_padding"
+        android:left="@dimen/timer_padding"
+        android:right="@dimen/timer_padding"
+        android:top="@dimen/timer_padding">
+        <shape android:shape="oval" >
+            <stroke
+                android:width="8dp"
+                android:color="@android:color/darker_gray" />
+
+            <solid android:color="@android:color/transparent" />
+        </shape>
+    </item>
+
+</layer-list>

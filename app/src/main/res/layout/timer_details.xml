@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutTimerDetails"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/activity_vertical_margin"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/txtTimerDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="@string/timer_details"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="@dimen/title_text" />
+
+    <RelativeLayout
+        android:id="@+id/layoutTimerName"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/color_options_item_active_background"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:text="@string/name"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/title_text" />
+
+        <EditText
+            android:id="@+id/edtTimerName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="200dp"
+            android:layout_marginRight="20dp"
+            android:background="@android:color/transparent"
+            android:gravity="right|center_vertical"
+            android:inputType="text"
+            android:text="@string/name"
+            android:textColor="@color/create_timer_edit_text"
+            android:textSize="@dimen/title_text" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutTimerSets"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/color_options_item_active_background"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/txtSets"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:text="@string/number_of_sets"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/title_text" />
+
+        <EditText
+            android:id="@+id/edtTimerSets"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@+id/txtSets"
+            android:background="@android:color/transparent"
+            android:gravity="right|center_vertical"
+            android:inputType="number"
+            android:maxLength="3"
+            android:text="@string/default_sets"
+            android:textColor="@color/create_timer_edit_text"
+            android:textSize="@dimen/title_text" />
+    </RelativeLayout>
+
+</LinearLayout>
