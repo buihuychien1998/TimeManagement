@@ -1,4 +1,4 @@
-package com.example.timemanagement;
+package com.mteam.timemanagement;
 
 import org.junit.Test;
 

@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.timemanagement'
+    namespace 'com.mteam.timemanagement'
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.example.timemanagement"
+        applicationId "com.mteam.timemanagement"
         minSdk 21
         targetSdk 32
         versionCode 1

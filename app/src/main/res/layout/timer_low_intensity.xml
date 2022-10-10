@@ -69,7 +69,7 @@
             android:textColor="@android:color/darker_gray"
             android:textSize="@dimen/title_text" />
 
-        <com.example.timemanagement.components.HiitEditText
+        <com.mteam.timemanagement.components.HiitEditText
             android:id="@+id/edtLowIntensityDurationTime"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
