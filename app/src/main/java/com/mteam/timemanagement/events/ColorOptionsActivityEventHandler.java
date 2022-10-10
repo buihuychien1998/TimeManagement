@@ -40,7 +40,7 @@ public class ColorOptionsActivityEventHandler extends BaseEventHandler implement
 	private int selectedIndex;
 	
 	private BillingClient billingClient;
-	
+
 	final List<SkuDetails> skuDetailsList = new ArrayList<>();
 	
 	public ColorOptionsActivityEventHandler(Activity activity) {
@@ -55,8 +55,17 @@ public class ColorOptionsActivityEventHandler extends BaseEventHandler implement
 								handlePurchase(purchase);
 								String signatureWorkouts = CommonUtils.loadData(activity, Params.SIGNATURE_WORKOUT_BOUGHT);
 								signatureWorkouts = signatureWorkouts.equals("") ? signatureWorkouts : signatureWorkouts + ";";
-								//signatureWorkouts += GorillaApp.currentWorkout;
 								CommonUtils.saveData(activity, Params.SIGNATURE_WORKOUT_BOUGHT, signatureWorkouts);
+
+								///event change color
+								ColorOptionsItem item = (ColorOptionsItem)((ColorOptionsActivity)activity).getColorList().getItemAtPosition(selectedIndex);
+								item.setChecked(true);
+								selectedColor = item.getName();
+								ColorOptionsItem lastSelectedItem = (ColorOptionsItem)((ColorOptionsActivity)activity).getColorList().getItemAtPosition(selectedIndex);
+								lastSelectedItem.setChecked(false);
+								ColorOptionsListAdapter adapter = (ColorOptionsListAdapter) ((ColorOptionsActivity)activity).getColorList().getAdapter();
+								adapter.notifyDataSetChanged();
+								back();
 							}
 						}
 						// Query for existing user purchases
@@ -143,6 +152,8 @@ public class ColorOptionsActivityEventHandler extends BaseEventHandler implement
 
 		ConsumeResponseListener listener = (billingResult, purchaseToken) -> {
 			if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK) {
+
+
 				// Handle the success of the consume operation.
 			}
 		};
@@ -170,7 +181,7 @@ public class ColorOptionsActivityEventHandler extends BaseEventHandler implement
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 		// If user purchased all
 		String purchasedAll = CommonUtils.loadData(activity, Params.SIGNATURE_WORKOUT_ALL_UNLOCK);
-		if(purchasedAll.equals("")){
+		//if (purchasedAll.equals("")){
 			ColorOptionsItem item = (ColorOptionsItem)parent.getItemAtPosition(position);
 			if(position >= 1){
 				if (skuDetailsList.isEmpty()) {
@@ -194,26 +205,28 @@ public class ColorOptionsActivityEventHandler extends BaseEventHandler implement
 						.build();
 
 				BillingResult result = billingClient.launchBillingFlow(activity, billingFlowParams);
+			}else {
+				item.setChecked(true);
+				selectedColor = item.getName();
+				ColorOptionsItem lastSelectedItem = (ColorOptionsItem)parent.getItemAtPosition(selectedIndex);
+				lastSelectedItem.setChecked(false);
+				selectedIndex = position;
+				ColorOptionsListAdapter adapter = (ColorOptionsListAdapter) ((ColorOptionsActivity)activity).getColorList().getAdapter();
+				adapter.notifyDataSetChanged();
+				back();
 			}
-			item.setChecked(true);
-			selectedColor = item.getName();
-			ColorOptionsItem lastSelectedItem = (ColorOptionsItem)parent.getItemAtPosition(selectedIndex);
-			lastSelectedItem.setChecked(false);
-			selectedIndex = position;
-			ColorOptionsListAdapter adapter = (ColorOptionsListAdapter) ((ColorOptionsActivity)activity).getColorList().getAdapter();
-			adapter.notifyDataSetChanged();
-			back();
-		}else {
-			ColorOptionsItem item = (ColorOptionsItem)parent.getItemAtPosition(position);
-			item.setChecked(true);
-			selectedColor = item.getName();
-			ColorOptionsItem lastSelectedItem = (ColorOptionsItem)parent.getItemAtPosition(selectedIndex);
-			lastSelectedItem.setChecked(false);
-			selectedIndex = position;
-			ColorOptionsListAdapter adapter = (ColorOptionsListAdapter) ((ColorOptionsActivity)activity).getColorList().getAdapter();
-			adapter.notifyDataSetChanged();
-			back();
-		}
+
+//		}else {
+//			ColorOptionsItem item = (ColorOptionsItem)parent.getItemAtPosition(position);
+//			item.setChecked(true);
+//			selectedColor = item.getName();
+//			ColorOptionsItem lastSelectedItem = (ColorOptionsItem)parent.getItemAtPosition(selectedIndex);
+//			lastSelectedItem.setChecked(false);
+//			selectedIndex = position;
+//			ColorOptionsListAdapter adapter = (ColorOptionsListAdapter) ((ColorOptionsActivity)activity).getColorList().getAdapter();
+//			adapter.notifyDataSetChanged();
+//			back();
+//		}
 
 	}
 
