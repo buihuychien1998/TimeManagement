@@ -22,7 +22,6 @@ public class PurchaseManager {
 
 
 	static {
-		productIds.put("Default","color_default");
 		productIds.put("Red", "red");
 		productIds.put("Orange", "orange");
 		productIds.put("Yellow", "yellow");

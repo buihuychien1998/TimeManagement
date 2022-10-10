@@ -30,6 +30,7 @@ import com.example.timemanagement.billing.PurchaseManager;
 import com.example.timemanagement.commons.Params;
 import com.example.timemanagement.dto.ColorOptionsItem;
 import com.example.timemanagement.dto.HiiTTimer;
+import com.example.timemanagement.utils.CommonUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +55,10 @@ public class ColorOptionsActivityEventHandler extends BaseEventHandler implement
 							if (purchase.getPurchaseState() == Purchase.PurchaseState.PURCHASED) {
 								Log.d(ColorOptionsActivityEventHandler.class.getSimpleName(), "PURCHARED");
 								handlePurchase(purchase);
+								String signatureWorkouts = CommonUtils.loadData(activity, Params.SIGNATURE_WORKOUT_BOUGHT);
+								signatureWorkouts = signatureWorkouts.equals("") ? signatureWorkouts : signatureWorkouts + ";";
+								//signatureWorkouts += GorillaApp.currentWorkout;
+								CommonUtils.saveData(activity, Params.SIGNATURE_WORKOUT_BOUGHT, signatureWorkouts);
 							}
 						}
 						// Query for existing user purchases
@@ -165,40 +170,53 @@ public class ColorOptionsActivityEventHandler extends BaseEventHandler implement
 
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-		ColorOptionsItem item = (ColorOptionsItem)parent.getItemAtPosition(position);
-		item.setChecked(true);
-		selectedColor = item.getName();
+		// If user purchased all
+		String purchasedAll = CommonUtils.loadData(activity, Params.SIGNATURE_WORKOUT_ALL_UNLOCK);
+		if(purchasedAll.equals("")){
+			ColorOptionsItem item = (ColorOptionsItem)parent.getItemAtPosition(position);
+			if(position >= 1){
+				if (skuDetailsList.isEmpty()) {
+					Toast.makeText(activity.getApplicationContext(), "This feature is coming soon", Toast.LENGTH_SHORT).show();
+					return;
+				}
+				Log.d(ColorOptionsActivityEventHandler.class.getSimpleName(), "buy: " + HiitApp.currentWarmupColor);
+				int skuIndex = -1;
+				for (int index = 0; index < skuDetailsList.size(); index++) {
+					if (skuDetailsList.get(index).getSku().equals(productIds.get(item.getName()))) {
+						skuIndex = index;
+						break;
+					}
+				}
+				if (skuIndex == -1) {
+					Toast.makeText(activity.getApplicationContext(), "Price not found for this item!", Toast.LENGTH_SHORT).show();
+					return;
+				}
+				BillingFlowParams billingFlowParams = BillingFlowParams.newBuilder()
+						.setSkuDetails(skuDetailsList.get(skuIndex))
+						.build();
 
-		ColorOptionsItem lastSelectedItem = (ColorOptionsItem)parent.getItemAtPosition(selectedIndex);
-		lastSelectedItem.setChecked(false);
-
-		selectedIndex = position;
-
-		ColorOptionsListAdapter adapter = (ColorOptionsListAdapter) ((ColorOptionsActivity)activity).getColorList().getAdapter();
-		adapter.notifyDataSetChanged();
-		if (skuDetailsList.isEmpty()) {
-			Toast.makeText(activity.getApplicationContext(), "This feature is coming soon", Toast.LENGTH_SHORT).show();
-			return;
-		}
-		Log.d(ColorOptionsActivityEventHandler.class.getSimpleName(), "buy: " + HiitApp.currentWarmupColor);
-		int skuIndex = -1;
-		for (int index = 0; index < skuDetailsList.size(); index++) {
-			if (skuDetailsList.get(index).getSku().equals(PurchaseManager.productIds.get(item.getName()))) {
-				skuIndex = index;
-				break;
+				BillingResult result = billingClient.launchBillingFlow(activity, billingFlowParams);
 			}
+			item.setChecked(true);
+			selectedColor = item.getName();
+			ColorOptionsItem lastSelectedItem = (ColorOptionsItem)parent.getItemAtPosition(selectedIndex);
+			lastSelectedItem.setChecked(false);
+			selectedIndex = position;
+			ColorOptionsListAdapter adapter = (ColorOptionsListAdapter) ((ColorOptionsActivity)activity).getColorList().getAdapter();
+			adapter.notifyDataSetChanged();
+			back();
+		}else {
+			ColorOptionsItem item = (ColorOptionsItem)parent.getItemAtPosition(position);
+			item.setChecked(true);
+			selectedColor = item.getName();
+			ColorOptionsItem lastSelectedItem = (ColorOptionsItem)parent.getItemAtPosition(selectedIndex);
+			lastSelectedItem.setChecked(false);
+			selectedIndex = position;
+			ColorOptionsListAdapter adapter = (ColorOptionsListAdapter) ((ColorOptionsActivity)activity).getColorList().getAdapter();
+			adapter.notifyDataSetChanged();
+			back();
 		}
-		if (skuIndex == -1) {
-			Toast.makeText(activity.getApplicationContext(), "Price not found for this item!", Toast.LENGTH_SHORT).show();
-			return;
-		}
-		BillingFlowParams billingFlowParams = BillingFlowParams.newBuilder()
-				.setSkuDetails(skuDetailsList.get(skuIndex))
-				.build();
 
-		BillingResult result = billingClient.launchBillingFlow(activity, billingFlowParams);
-
-		back();
 	}
 
 	public String getSelectedColor() {
