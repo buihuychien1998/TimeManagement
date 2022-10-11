@@ -32,13 +32,15 @@
             android:singleLine="true"
             android:ellipsize="end"
             android:gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:text="@string/high_intensity"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/btnReset"
             app:layout_constraintLeft_toRightOf="@+id/btnDone"
             android:textColor="#FFFFFF"
-            android:textSize="@dimen/timer_title_text" />
+            android:textSize="32sp" />
 
         <Button
             android:id="@+id/btnReset"
